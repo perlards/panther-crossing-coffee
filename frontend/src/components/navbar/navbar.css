@@ -1,35 +1,116 @@
 #navbar {
-    display: flex;
-    justify-content: space-evenly;
-    background: #0A2463;
-    padding: 15px 0;
-    align-items: center;
-    margin-bottom: 50px;
-    height: 15%;
-    color: #ffffff;
-    font-size: 25px;
-    font-family:"Instrument Serif", sans-serif;
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
+    position: fixed; /* Keeps it at the top */
     top: 0;
-    }
+    left: 0;
+    width: 100vw; /* Full width of the viewport */
+    height: 70px;  /* Adjust to your liking */
+    background-color: #0A2463;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    z-index: 1000;
+  }
+  
+/*hamburger icon*/
+.hamburger {
+    position: absolute;
+    left: 25px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* company name*/
+.navbar-title {
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    margin: 0;
+    text-align: center;
+}
+
+/* Sidebar */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: #0A2463;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1100;
+    pointer-events: none;
+}
+
+.side-menu.open {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
 
 
-    #navbar a {
+
+/* side menu titles*/
+.side-menu a {
     color: #ccc;
     text-decoration: none;
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+.side-menu .close-btn {
     font-size: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+body {
+    margin: 0;
+    padding-top: 70px; /* Match the navbar height */
+  }
+
+@media (min-width: 768px) {
+    .hamburger {
+    display: none;
     }
 
-    #navbar a:hover {
-    color: #ccc;
+    .side-menu {
+    position: static;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    flex-direction: row;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    width: auto;
     }
 
+    .side-menu a {
+    margin: 0 15px;
+    font-size: 18px;
+    color: white;
+    }
 
-
-
-
-
-
-
-
+    .close-btn {
+    display: none;
+    }
+}
