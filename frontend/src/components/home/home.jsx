@@ -1,28 +1,41 @@
 import React from 'react';
 import './home.css';
 import backgroundImage from '../../assets/coffee1.jpg';
+import { Link } from 'react-router-dom';
+
 
 export default function Home() {
-  return (
-    <section
-      className="hero-section"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: '100vh',
-        color: 'white',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-        textShadow: '0 0 5px black',
-      }}
-    >
-      <h1>Welcome to Panther Crossing Coffee</h1>
-      <p>Your daily ritual of great coffee</p>
+return (
+<>
+{/* Hero Section */}
+<section
+    className="hero-section"
+    style={{
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: '100vh',
+    color: 'white',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    textShadow: '0 0 5px black',
+    }}
+>
+    <h1>Welcome to Panther Crossing Coffee</h1>
+    <p>Your daily ritual of great coffee</p>
     </section>
-  );
+
+    {/* About Preview Section */}
+    <section className="about-preview">
+        <h1>MADE TO BE A DAILY RITUAL</h1>
+        <p>Stay energized and make every day memorable. We're on your team.</p>
+        <Link to="/about" className="learn-more">LEARN MORE →</Link>
+    </section>
+    </>
+
+);
 }
 
 

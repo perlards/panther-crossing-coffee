@@ -44,3 +44,36 @@
     line-height: 1.6;
     color: #333;
 }
+
+.about-preview {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #fdf7f3;
+}
+
+.about-preview h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.about-preview p {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.learn-more {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.learn-more:hover {
+    border-color: #1a1a1a;
+}
