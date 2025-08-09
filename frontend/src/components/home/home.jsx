@@ -3,6 +3,10 @@ import './home.css';
 import backgroundImage from '../../assets/coffee1.jpg';
 import { Link } from 'react-router-dom';
 
+import cupIcon from '../../assets/cup-icon.png';
+import beansIcon from '../../assets/beans-icon.png';
+import roastingIcon from '../../assets/roasting-icon.png';
+//import subscriptionIcon from '../../assets/subscription-icon.png';
 
 export default function Home() {
 return (
@@ -33,10 +37,27 @@ return (
         <p>Stay energized and make every day memorable. We're on your team.</p>
         <Link to="/about" className="learn-more">LEARN MORE →</Link>
     </section>
-    </>
 
+    {/* Features Section */}
+    <section className="features-section">
+        <div className="feature">
+        <img src={cupIcon} alt="Meticulous Quality" />
+        <h3>Meticulous Quality</h3>
+        </div>
+        <div className="feature">
+        <img src={beansIcon} alt="Ethically Sourced" />
+        <h3>Ethically Sourced</h3>
+        </div>
+        <div className="feature">
+        <img src={roastingIcon} alt="Small Batch Roasting" />
+        <h3>Small Batch Roasting</h3>
+        </div>
+        {/*
+        <div className="feature">
+        <img src={subscriptionIcon} alt="Customized Subscription" />
+        <h3>Customized Subscription</h3>
+</div>*/}
+    </section>
+    </>
 );
 }
-
-
-
