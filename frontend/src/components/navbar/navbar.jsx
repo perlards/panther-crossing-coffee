@@ -10,7 +10,10 @@ return (
     <>
     <div id="navbar">
         <div className="hamburger" onClick={toggleMenu}>☰</div>
-        <h1 className="navbar-title">PANTHER CROSSING COFFEE</h1>
+        <Link to="/" className="navbar-title">
+        Panther Crossing Coffee
+        </Link>
+
     </div>
 
     <div className={`side-menu ${isOpen ? 'open' : ''}`}>

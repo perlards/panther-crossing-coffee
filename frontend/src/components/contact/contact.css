@@ -1,0 +1,78 @@
+.contact-footer {
+  background-color: #000000; /* Red background */
+  color: #ccc; /* Light gray text */
+  padding: 20px 40px; /* Horizontal padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Vertically center items */
+  flex-wrap: wrap;
+  border-top: 2px solid #444; /* Gray top border */
+  gap: 20px; /* Space between items */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Redirect page links container */
+.footer-nav {
+  display: flex;
+  flex-direction: column; /* Stack links vertically */
+  gap: 10px;              /* Space between links */
+}
+
+/* Redirect page links */
+.footer-nav a {
+  color: #ff9900;          /* link text color */
+  text-decoration: none;   /* remove underline */
+  padding: 0;              /* remove button padding */
+  background: none;        /* remove background */
+  border-radius: 0;        /* no rounded corners */
+  display: block;          /* makes each link take full width, stacking nicely */
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+
+.footer-nav a:hover {
+  background-color: #ff9900; /* Orange background on hover */
+  color: #000;               /* Black text on hover */
+}
+
+/* Social icons container */
+.footer-social {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  flex: 1; /* Take remaining horizontal space */
+}
+
+/* Social icon images */
+.footer-social img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.footer-social img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* Links inside footer-nav and footer-info share these base styles */
+.footer-nav a,
+.footer-info a {
+  color: #cccccc; /* Light gray color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease; /* Smooth hover transition */
+}
+
+/* Hover color for all footer-nav and footer-info links */
+.footer-nav a:hover,
+.footer-info a:hover {
+  color: #ffaa33; /* Lighter orange on hover */
+}
+.footer-info {
+  padding: 35px 0; /* adds 15px padding top and bottom */
+}
