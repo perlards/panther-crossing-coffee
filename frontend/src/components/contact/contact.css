@@ -1,78 +1,174 @@
-.contact-footer {
-  background-color: #000000; /* Red background */
-  color: #ccc; /* Light gray text */
-  padding: 20px 40px; /* Horizontal padding */
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* Vertically center items */
-  flex-wrap: wrap;
-  border-top: 2px solid #444; /* Gray top border */
-  gap: 20px; /* Space between items */
-  font-family: 'Arial', sans-serif;
+:root{
+  --bg: #000000;        /* deep navy/black background */
+  --muted: #cccccc;     /* light gray text */
+  --accent: #ffffff;    /* gold accent for headings */
+  --accent-hover: #585756; /* accent hover */
 }
 
-/* Redirect page links container */
-.footer-nav {
-  display: flex;
-  flex-direction: column; /* Stack links vertically */
-  gap: 10px;              /* Space between links */
-}
-
-/* Redirect page links */
-.footer-nav a {
-  color: #ff9900;          /* link text color */
-  text-decoration: none;   /* remove underline */
-  padding: 0;              /* remove button padding */
-  background: none;        /* remove background */
-  border-radius: 0;        /* no rounded corners */
-  display: block;          /* makes each link take full width, stacking nicely */
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-
-.footer-nav a:hover {
-  background-color: #ff9900; /* Orange background on hover */
-  color: #000;               /* Black text on hover */
-}
-
-/* Social icons container */
-.footer-social {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
-  flex: 1; /* Take remaining horizontal space */
-}
-
-/* Social icon images */
-.footer-social img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease, transform 0.2s ease-in-out;
-  cursor: pointer;
-}
-
-.footer-social img:hover {
-  filter: grayscale(0%);
-  transform: scale(1.1);
-}
-
-/* Links inside footer-nav and footer-info share these base styles */
-.footer-nav a,
-.footer-info a {
-  color: #cccccc; /* Light gray color */
-  text-decoration: none; /* Remove underline */
-  transition: color 0.3s ease; /* Smooth hover transition */
-}
-
-/* Hover color for all footer-nav and footer-info links */
-.footer-nav a:hover,
-.footer-info a:hover {
-  color: #ffaa33; /* Lighter orange on hover */
-}
-.footer-info {
-  padding: 35px 0; /* adds 15px padding top and bottom */
-}
+/* Main footer container
+   - uses CSS grid to create the "logo across the top" and 3 columns beneath */
+   .contact-footer {
+    background-color: var(--bg); /* Black / navy background */
+    color: var(--muted);         /* Light gray text */
+    padding: 60px 40px;         /* Space around footer */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;               /* left / center / right columns */
+    grid-template-rows: auto 1fr;                     /* logo row + content row */
+    grid-template-areas:
+      "logo logo logo"                                /* logo spans all columns */
+      "nav  social info";                             /* nav | social | contact */
+    gap: 32px;                                        /* space between grid cells */
+    align-items: start;
+    font-family: 'Arial', sans-serif;
+    border-top: 2px solid rgba(255,255,255,0.05);     /* subtle top border */
+  }
+  
+  /* Logo (top, centered) */
+  .footer-logo {
+    grid-area: logo;            /* places this in the top row across columns */
+    display: flex;
+    justify-content: center;    /* center the logo horizontally */
+    align-items: center;
+  }
+  .footer-logo img {
+    max-width: 100px;           /* big logo similar to reference */
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+  
+  /* Left column: navigation links (Home / Contact) */
+  .footer-nav {
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;     /* stack links vertically like the example */
+    gap: 18px;
+    justify-self: start;        /* left aligned in the column */
+    align-items: flex-start;
+    margin-left: 4px;
+  }
+  .footer-nav a {
+    color: var(--muted);        /* muted link color */
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+  }
+  .footer-nav a:hover {
+    color: var(--accent-hover); /* gold-on-hover */
+  }
+  
+  /* Center column: "GET CONNECTED" + social icons */
+  .footer-social-section {
+    grid-area: social;
+    display: flex;
+    flex-direction: column;
+    align-items: center;        /* center the heading + icons */
+    justify-self: center;
+  }
+  .footer-social-section h4 {
+    margin: 0 0 12px 0;
+    color: var(--accent);
+    letter-spacing: 2px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+  }
+  
+  /* The icons themselves */
+  .footer-social {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer-social img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(.95); /* subtle gray look */
+    transition: filter 0.25s ease, transform 0.18s ease;
+    cursor: pointer;
+  }
+  .footer-social img:hover {
+    filter: grayscale(0%);     /* colored on hover */
+    transform: scale(1.08);
+  }
+  
+  /* Right column: contact info */
+  .footer-info-section {
+    grid-area: info;
+    justify-self: end;          /* align to the right column */
+    text-align: right;
+    align-self: start;
+  }
+  .footer-info-section h4 {
+    margin: 0 0 10px 0;
+    color: var(--accent);
+    letter-spacing: 2px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+  }
+  .footer-info-section p {
+    margin: 4px 0;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .footer-info-section a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .footer-info-section a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+  }
+  
+  /* ===== Responsive: stack for small screens =====
+     On small screens we switch to a single column and center everything */
+  @media (max-width: 900px) {
+    .contact-footer {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto;
+      grid-template-areas:
+        "logo"
+        "social"
+        "info"
+        "nav";
+      padding: 36px 20px;
+      text-align: center;     /* center text for smaller screens */
+    }
+  
+    .footer-logo img {
+      max-width: 280px;
+    }
+  
+    /* nav becomes horizontal row centered on mobile */
+    .footer-nav {
+      flex-direction: row;
+      gap: 24px;
+      justify-content: center;
+      align-items: center;
+      margin-left: 0;
+    }
+  
+    .footer-nav a {
+      font-size: 1rem;
+    }
+  
+    .footer-info-section {
+      justify-self: center;
+      text-align: center;
+    }
+  
+    .footer-social img {
+      width: 42px;
+      height: 42px;
+    }
+  }
+  
+  /* Optional: make footer links and images non-blue default (removes browser default link color) */
+  .contact-footer a {
+    color: inherit;
+  }
