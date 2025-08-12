@@ -17,12 +17,17 @@
 
 /* changes the about when i hover */
 .side-menu a:hover {
-    color: #ffffff; /* white on hover */
+    color: var(--accent-hover);
     transition: color 0.3s ease;
 }
+.side-menu a.active {
+    color: var(--accent-hover);
+    font-weight: bold; /* optional */
+  }
+  
 .hamburger:hover {
-    color: #f5a623; /* a golden-brown coffee color */
     transition: color 0.3s ease;
+    color: var(--accent-hover);
 }
 
 
@@ -74,11 +79,12 @@
 
 /* side menu titles*/
 .side-menu a {
-    color: #ccc;
+    color: #ffffff;
     text-decoration: none;
     font-size: 24px;
     margin: 15px 0;
 }
+
 
 .side-menu .close-btn {
     font-size: 30px;
