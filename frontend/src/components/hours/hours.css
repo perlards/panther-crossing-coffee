@@ -1,0 +1,85 @@
+.hours-section {
+    background-color: #111;
+    color: white;
+    padding: 40px 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.map-container {
+    width: 100%;
+    height: 350px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.info-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 30px 5%;
+    background: url('/path-to-your-texture.png') center/cover no-repeat;
+}
+
+.info-block {
+    flex: 1 1 45%;
+    margin-bottom: 20px;
+}
+
+.small-title {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #d1d1d1;
+    margin-bottom: 5px;
+}
+
+.big-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.address {
+    display: flex;
+    align-items: flex-start;
+}
+
+.address .icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.address p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.address a {
+    display: inline-block;
+    margin-top: 4px;
+    color: #d1d1d1;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.hours-text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ccc;
+}
+
+@media (max-width: 768px) {
+    .info-container {
+    flex-direction: column;
+    }
+
+    .info-block {
+    flex: 1 1 100%;
+    }
+}
