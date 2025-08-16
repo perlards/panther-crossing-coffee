@@ -20,14 +20,14 @@
     z-index: 1;
 }
 .hero-section h1 {
- font-size:50px;
- color: #ffffff;
- font-family: 'Optima', 'Garamond', serif;
+font-size:50px;
+color: #ffffff;
+font-family: 'Optima', 'Garamond', serif;
 }
 .hero-section p {
     font-size:25px;
     color: #ffffff;
-   }
+}
 .hero-text {
     position: relative;
     z-index: 2;
@@ -156,11 +156,42 @@
         overflow: visible !important;
     }
 }
+.slick-prev, 
+.slick-next {
+    display: block !important;
+    z-index: 20 !important;
+    width: 45px;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.4); /* optional subtle background */
+    border-radius: 50%;
+    top: 50%; 
+    transform: translateY(-50%); /* center vertically */
+}
+
+.slick-prev:hover, 
+.slick-next:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.slick-prev {
+    left: 15px !important;/* space it outside carousel */
+}
+
+.slick-next{
+    right: 15px !important;
+}
+
+/* Optional: use slick’s default arrow icons */
+.slick-prev:before, 
+.slick-next:before {
+    font-size: 28px;
+    color: #ffffff;
+    opacity: 1;
+}
 
 #navbar .navbar-title {
     color: white;
     font-size: 25px;
     font-weight: bold;
     text-align: center;
-  }
-  
+}

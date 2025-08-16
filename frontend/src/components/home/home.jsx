@@ -29,7 +29,7 @@ const settings = {
         breakpoint: 768,  // On mobile
         settings: {
         slidesToShow: 1,
-        arrows: false,
+        arrows: true,
         dots: true,
         infinite: false,      // Disable infinite loop on mobile
         centerMode: true,     // Enable center mode to peek next slide
