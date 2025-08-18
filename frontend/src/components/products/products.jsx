@@ -2,53 +2,53 @@ import React from "react";
 import "./Products.css";
 
 export default function Products() {
-  return (
+return (
     <div className="products-page">
-      <nav className="products-nav">
+    <nav className="products-nav">
         <span>MERCHANDISE</span>
         <span>BLENDS</span>
-      </nav>
+    </nav>
 
-      {/* Merchandise Section */}
-      <section className="category">
+    {/* Merchandise Section */}
+    <section className="category">
         <h2 className="category-title">MERCHANDISE</h2>
         <div className="product-grid">
-          <div className="product-card">
+        <div className="product-card">
             <h3>DIGITAL GIFT CARD</h3>
             <span className="price">5</span>
             <img
-              src="/images/giftcard.png"
-              alt="Digital Gift Card"
-              className="product-image"
+            src="/images/giftcard.png"
+            alt="Digital Gift Card"
+            className="product-image"
             />
-          </div>
         </div>
-      </section>
+        </div>
+    </section>
 
-      {/* Blends Section */}
-      <section className="category">
+    {/* Blends Section */}
+    <section className="category">
         <h2 className="category-title">BLENDS</h2>
         <div className="product-grid">
-          <div className="product-card">
-            <h3>SPEED DIAL</h3>
+        <div className="product-card">
+            <h3>DARK ROAST</h3>
             <span className="price">15</span>
             <img
-              src="/images/speed-dial.png"
-              alt="Speed Dial"
-              className="product-image"
+            src="/images/speed-dial.png"
+            alt="Speed Dial"
+            className="product-image"
             />
-          </div>
-          <div className="product-card">
-            <h3>POWER TRIP</h3>
-            <span className="price">15</span>
-            <img
-              src="/images/power-trip.png"
-              alt="Power Trip"
-              className="product-image"
-            />
-          </div>
         </div>
-      </section>
+        <div className="product-card">
+            <h3>VANILLA</h3>
+            <span className="price">15</span>
+            <img
+            src="/images/power-trip.png"
+            alt="Power Trip"
+            className="product-image"
+            />
+        </div>
+        </div>
+    </section>
     </div>
-  );
+);
 }
