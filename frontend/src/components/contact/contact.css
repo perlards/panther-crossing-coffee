@@ -1,205 +1,129 @@
-:root{
-  --bg: #000000;        /* deep navy/black background */
-  --muted: #cccccc;     /* light gray text */
-  --accent: #ffffff;    /* gold accent for headings */
-  --accent-hover: #585756; /* accent hover */
+:root {
+  --bg: #000000;
+  --muted: #cccccc;
+  --accent: #ffffff;
+  --accent-hover: #585756;
 }
 
-/* Main footer container
-   - uses CSS grid to create the "logo across the top" and 3 columns beneath */
+/* Main footer */
+.contact-footer {
+  background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+  color: var(--muted);
+  padding: 50px 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;  /* left / center / right */
+  grid-template-rows: auto 1fr auto;   /* logo / content / back-to-top */
+  grid-template-areas:
+    "logo logo logo"
+    "social info info"
+    "back back back";                  /* Back to Top spans all columns */
+  gap: 60px;
+  font-family: 'Arial', sans-serif;
+  border-top: 2px solid rgba(255,255,255,0.05);
+}
+
+/* Logo centered */
+.footer-logo {
+  grid-area: logo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-logo img {
+  max-width: 160px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* GET CONNECTED (left-aligned) */
+.footer-social-section {
+  grid-area: social;
+  display: flex;
+  flex-direction: column;
+  justify-self: start;   /* left-aligned */
+  align-items: flex-start;
+}
+.footer-social-section h4 {
+  margin: 0 0 12px 0;
+  color: var(--accent);
+  letter-spacing: 2px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+.footer-social {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: flex-start; /* icons left-aligned */
+  margin-top: 15px;
+}
+.footer-social img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0.95);
+  transition: filter 0.25s ease, transform 0.18s ease;
+  cursor: pointer;
+}
+.footer-social img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.08);
+}
+
+/* CONTACT US (right-aligned) */
+.footer-info-section {
+  grid-area: info;
+  justify-self: end;
+  text-align: right;
+  align-self: start;
+}
+.footer-info-section h4 {
+  margin: 0 0 20px 0;
+  color: var(--accent);
+  letter-spacing: 2px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+.footer-info-section p {
+  margin: 4px 0;
+  font-weight: 600;
+  color: var(--muted);
+}
+.footer-info-section a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.footer-info-section a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* BACK TO TOP (aligned with logo) */
+.back-to-top {
+  grid-area: back;
+  justify-self: center;   /* centers horizontally in the footer */
+  display: inline-block;
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.25s ease, transform 0.2s ease;
+}
+.back-to-top:hover {
+  color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* ===== Responsive scaling ===== */
+@media (max-width: 900px) {
   .contact-footer {
-    background: linear-gradient(to bottom, #0a0a0a, #1a1a1a); /* gradient instead of flat color */
-    color: var(--muted);         /* Light gray text */
-    padding: 50px 50px;          /* more breathing room */
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;               /* left / center / right columns */
-    grid-template-rows: auto 1fr;                     /* logo row + content row */
-    grid-template-areas:
-      "logo logo logo"                                /* logo spans all columns */
-      "nav  social info";                             /* nav | social | contact */
-    gap: 60px;                                        /* space between grid cells */
-    align-items: start;
-    font-family: 'Arial', sans-serif;
-    border-top: 2px solid rgba(255,255,255,0.05);     /* subtle top border */
-    position: relative; /* allows absolute positioning of back-to-top if needed */
+    padding: 30px 15px;
+    gap: 30px;
   }
-
-/* Add subtle vertical dividers between columns */
-  .contact-footer > *:not(.footer-logo) {
-    border-right: none;
-    padding-right: 0;
-  }
-  .contact-footer > *:nth-child(3n) {
-    border-right: none;
-  }
-
-/* Logo (top, centered) */
-  .footer-logo {
-    grid-area: logo;            /* places this in the top row across columns */
-    display: flex;
-    justify-content: center;    /* center the logo horizontally */
-    align-items: center;
-  }
-  .footer-logo img {
-    max-width: 160px;           /* slightly larger logo */
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
-
-  }
-
-/* Left column: navigation links (Home / Contact) */
-  .footer-nav {
-    grid-area: nav;
-    display: flex;
-    flex-direction: column;     /* stack links vertically like the example */
-    gap: 18px;
-    justify-self: start;        /* left aligned in the column */
-    align-items: flex-start;
-    margin-left: 4px;
-  }
-
-/* back to top */
-  .footer-nav a {
-    color: var(--muted);        /* muted link color */
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.05rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    transition: color 0.25s ease, text-shadow 0.25s ease;
-    }
-  .footer-nav a:hover {
-    filter: grayscale(0%);     /* colored on hover */
-    transform: scale(1.08);
-    color: var(--accent-hover);
-    
-  }
-
-/* Center column: "GET CONNECTED" + social icons */
-  .footer-social-section {
-    grid-area: social;
-    display: flex;
-    flex-direction: column;
-    align-items: center;        /* center the heading + icons */
-    justify-self: center;
-  }
-  .footer-social-section h4 {
-    margin: 0 0 12px 0;
-    color: var(--accent);
-    letter-spacing: 2px;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-  }
-
-/* The icons themselves */
-  .footer-social {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    justify-content: center;
-    margin-top: 15px;
-  }
-  .footer-social img {
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-    filter: grayscale(100%) brightness(.95); /* subtle gray look */
-    transition: filter 0.25s ease, transform 0.18s ease;
-    cursor: pointer;
-  }
-  .footer-social img:hover {
-    filter: grayscale(0%);     /* colored on hover */
-    transform: scale(1.08);
-  }
-
-/* Right column: contact info */
-  .footer-info-section {
-    grid-area: info;
-    justify-self: end;          /* align to the right column */
-    text-align: right;
-    align-self: start;
-  }
-/* contact us*/
-  .footer-info-section h4 {
-    margin: 0 0 10px 0;
-    color: var(--accent);
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-  }
-  .footer-info-section p {
-    margin: 4px 0;
-    font-weight: 600;
-    color: var(--muted);
-  }
-  .footer-info-section a {
-    color: var(--muted);
-    text-decoration: none;
-  }
-  .footer-info-section a:hover {
-    color: var(--accent-hover);
-    text-decoration: underline;
-  }
-
-/* Style Back to Top link */
-  .back-to-top {
-    display: inline-block;
-    margin-top: 20px;
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--muted);
-    transition: color 0.25s ease, transform 0.2s ease;
-  }
-  .back-to-top:hover {
-    color: var(--accent-hover);
-    transform: translateY(-2px);
-  }
-
-  /* ===== Responsive: stack for small screens =====
-    On small screens we switch to a single column and center everything */
-    @media (max-width: 900px) {
-      .contact-footer {
-        grid-template-columns: 1fr 1fr; /* two equal columns */
-        grid-template-rows: auto auto auto;
-        grid-template-areas:
-          "logo  logo"   /* logo spans both columns on top */
-          "social info"  /* social on left, info on right */
-          "nav    nav";  /* nav spans both columns below */
-        padding: 36px 20px;
-        text-align: left; /* optional: align text left for social/info */
-      }
-    
-      /* Optional adjustments */
-      .footer-logo {
-        justify-content: center; /* keep logo centered */
-      }
-    
-      .footer-social-section {
-        justify-self: start; /* align social to left */
-        text-align: left; /* text left aligned */
-      }
-    
-      .footer-info-section {
-        justify-self: end; /* align contact info to right */
-        text-align: right;
-      }
-    
-      /* Nav - full width below */
-      .footer-nav {
-        grid-area: nav;
-        justify-self: center;
-        flex-direction: row;
-        gap: 24px;
-        justify-content: center;
-        align-items: center;
-        margin-left: 0;
-        text-align: center;
-      }
-    }
-    
+  .footer-social-section h4 { font-size: 0.85rem; }
+  .footer-social img { width: 28px; height: 28px; }
+  .footer-info-section h4, .footer-info-section p { font-size: 0.85rem; }
+}
