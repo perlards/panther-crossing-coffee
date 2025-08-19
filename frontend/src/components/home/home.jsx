@@ -7,6 +7,7 @@ import backgroundImage2 from '../../assets/coffee4.jpg';
 import backgroundImage3 from '../../assets/coffee3.jpg';
 
 import cupIcon from '../../assets/cup-icon.png';
+import cupToGoIcon from '../../assets/cuptogo.png';
 import beansIcon from '../../assets/beans-icon.png';
 import roastingIcon from '../../assets/roasting-icon.png';
 
@@ -103,7 +104,7 @@ return (
         <h3>ETHICALLY SOURCED</h3>
         </div>
         <div className="feature">
-        <img src={cupIcon} alt="Customized Subscription" />
+        <img src={cupToGoIcon} alt="Customized Subscription" />
         <h3>FRESHLY MADE</h3>
         </div>
     </section>
