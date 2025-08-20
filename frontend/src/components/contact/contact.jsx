@@ -34,7 +34,7 @@ return (
     {/* Contact info */}
     <div className="footer-info-section">
         <h4>CONTACT US</h4>
-        <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+        <p><a href="tel:+1234567890">+1 (234) 567-8900</a></p>
         <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
     </div>
 
