@@ -20,7 +20,7 @@ return (
         <div className="address">
             <span className="icon">📍</span>
             <p>
-            119 Washington Ave., Suite 100, Miami, FL, 33139
+            food truck, Miami, FL, 33139 
             <br />
             <a href="https://goo.gl/maps/UJ6pF7cY7yE2" target="_blank" rel="noreferrer">
                 Get directions
